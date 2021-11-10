@@ -18,26 +18,26 @@ public class UniqueNumbers {
         }
 
         int[] uniqueNumbers = new int[numbers.length];
-
         int nextUniqueIndex = 0;
-
+        
         for (int index = 0; index < numbers.length; index++) {
-          boolean numberFound = false;
-            for (int i = 0; index < uniqueNumbers.length; i++)
-            {
-            
-            if (numbers[index] == uniqueNumbers[i]) {
-              numberFound = true;
+          boolean found = false;
+          for (int i = 0; i < uniqueNumbers.length; i++) {
+            if(numbers[index] == uniqueNumbers[i]) {
+              found = true;
               break;
 
-        }
+            }
+
+          }
+
+          if(!found) {
+            uniqueNumbers[nextUniqueIndex] = numbers[index];
+            nextUniqueIndex++;
+         
+          }
 
         }
-        if (!numberFound){
-          uniqueNumbers[nextUniqueIndex] = numbers[index];
-          nextUniqueIndex++;
-           }
-}
 
         String uniqueNumbersAsString = Arrays.toString(uniqueNumbers);
         System.out.println("Unique numbers: " + uniqueNumbersAsString);
